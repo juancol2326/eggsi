@@ -3,34 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>foo fighters</title>
-    <link rel="stylesheet" href="egg2.css">
+    <title>Foo Fighters</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlazar el archivo CSS externo -->
+    <style>
+        /* Estilos CSS adicionales dentro de la etiqueta <style> */
+        /* Añade estilos personalizados aquí si es necesario */
+    </style>
 </head>
 <body>
-    <h1>foo fighters</h1>
+    <h1>Foo Fighters</h1>
+    <!-- Contenedor del slideshow -->
     <div class="slideshow-container">
-        <div class="slide">
-            <img src="foo1.png" alt="Imagen 1">
+        <div class="slide fade">
+            <img src="foo1.png" alt="Foo Fighters - Imagen 1">
         </div>
-        <div class="slide">
-            <img src="foo2.jpeg" alt="Imagen 2">
+        <div class="slide fade">
+            <img src="foo2.jpeg" alt="Foo Fighters - Imagen 2">
         </div>
-        <div class="slide">
-            <img src="foo3.jpeg" alt="Imagen 3">
+        <div class="slide fade">
+            <img src="foo3.jpeg" alt="Foo Fighters - Imagen 3">
         </div>
-                <img src="taylor1.jpeg" alt="Imagen 1">
-            </div>
-            <div class="slide">
-                <img src="dave1.jpeg" alt="Imagen 2">
-            </div>
-            <div class="slide">
-                <img src="pat1.jpeg" alt="Imagen 3">
-            </div>
-     <div class="slide">
-                <img src="chris.jpeg" alt="Imagen 3">
-            </div>
-     <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <div class="slide fade">
+            <img src="taylor1.jpeg" alt="Taylor Hawkins - Imagen 1">
+        </div>
+        <div class="slide fade">
+            <img src="dave1.jpeg" alt="Dave Grohl - Imagen 2">
+        </div>
+        <div class="slide fade">
+            <img src="pat1.jpeg" alt="Pat Smear - Imagen 3">
+        </div>
+        <div class="slide fade">
+            <img src="chris.jpeg" alt="Chris Shiflett - Imagen 4">
+        </div>
+        <!-- Botones de navegación -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
         <a class="next" onclick="changeSlide(1)">&#10095;</a>
-    
+    </div>
+
+    <script>
+        // Función para cambiar las diapositivas
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            const slides = document.getElementsByClassName("slide");
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
 </body>
 </html>
